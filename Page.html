@@ -7,14 +7,37 @@
 <body>
 <input type="text" id="SentenceBox">
 <button class="Submit">Send Sentence</button>
+<p id= "replace">Text</p>
 <script type="text/javascript">
 	/*
 	plan
+	when button is click
+	get text value
+	turn text value into a string
+	then use .split("")
+	then turn it into a array thanks to split
+	then use .length to find the amound of elements in that array
 	*/
 	SubmitBtn = document.querySelector(".Submit");
 	SubmitBtn.addEventListener("click", () => {
-
+		Text = document.getElementById("SentenceBox").value;
+		start(Text);
 	})
+	function start(_string)
+	{
+		let arr = _string.split(" ");
+		console.log(arr);
+		let int = arr.length;
+		console.log(int);
+		if(arr.length > 1)
+		{
+			document.getElementById("replace").innerHTML = `There are ${arr.length} words in this sentence, and the words are ${arr}`;
+		}
+		else
+		{
+			document.getElementById("replace").innerHTML = `There is ${arr.length} word in this sentence, and the word is ${arr}`;
+		}
+	}
 </script>
 </body>
 </html>
